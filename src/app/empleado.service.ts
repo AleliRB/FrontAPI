@@ -15,6 +15,7 @@ export class EmpleadoService {
   private URLbase =environment.apiURL +'api/empleados';
 
   public obtenerTodos(): Observable<Empleado[]>{
+    
     return this.http.get<Empleado[]>(this.URLbase);
   }
 

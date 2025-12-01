@@ -5,6 +5,7 @@ import { InicioComponent } from './admin/inicio/inicio.component';
 import { RegistroEmpleadosComponent } from './admin/registro-empleados/registro-empleados.component';
 import { CrearEmpleadoComponent } from './admin/formulario/crear-empleado/crear-empleado.component';
 import { CrearAdminComponent } from './admin/formulario/crear-admin/crear-admin.component';
+import { EditarEmpleadoComponent } from './admin/formulario/editar-empleado/editar-empleado.component';
 
 
 export const routes: Routes = [
@@ -24,6 +25,9 @@ export const routes: Routes = [
     },
     {
         path:'crear-admin', component:CrearAdminComponent
+    },
+    {
+        path:'registro-empleados/editar/:id', component:EditarEmpleadoComponent
     }
     
 ];
