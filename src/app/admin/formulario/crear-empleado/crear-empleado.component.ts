@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import{FormBuilder, ReactiveFormsModule} from  '@angular/Forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from "@angular/router";
 import { EmpleadoService } from '../../../empleado.service';
 import { EmpleadoCreacion } from '../../../models/empleado.models';

@@ -6,3 +6,7 @@ export interface EmpleadoCreacion{
     email:string;
     direccion:string;
 }
+export interface Empleado{
+    id:number;
+    nombre:String;
+}

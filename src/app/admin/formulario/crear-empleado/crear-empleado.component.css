@@ -78,3 +78,33 @@ body {
     background: #6c6c6c;    /* Gris suave */
     color: #ffffff;
 }
+/* --- CAMPOS DE TEXTO ULTRA MODERNOS --- */
+
+.input-field {
+    width: 100%;
+    padding: 13px 16px;
+
+    background: #f3f3f3;          /* Gris claro elegante */
+    border: 1px solid #e2e2e2;    /* Línea suave */
+    border-radius: 14px;          /* Más redondo, diseño premium */
+
+    font-size: 15px;
+    font-weight: 300;
+    color: #444;
+
+    transition: all 0.25s ease;
+}
+
+/* Hover suave */
+.input-field:hover {
+    background: #fafafa;
+    border-color: #d0d0d0;
+}
+
+/* Focus moderno */
+.input-field:focus {
+    background: #ffffff;
+    border-color: #000;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.12); /* Halo suave negro */
+    outline: none;
+}
