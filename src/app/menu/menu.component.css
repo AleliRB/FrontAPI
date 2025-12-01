@@ -1,0 +1,43 @@
+.top-menu {
+  height: 70px;
+  background: white;
+  /* position: fixed;  ❌ ELIMINADO */
+  /* top: 0;          ❌ ELIMINADO */
+  /* left: 0;         ❌ ELIMINADO */
+  /* right: 0;        ❌ ELIMINADO */
+  z-index: 2000;
+}
+
+/* Estilos del menú */
+.nav-link span {
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  color: #000;
+}
+
+.nav-link i {
+  color: #000;
+}
+
+/* Hover */
+.nav-link:hover span,
+.nav-link:hover i {
+  text-decoration: underline;
+}
+
+/* Activo */
+.active-link {
+  color: #0d6efd !important;
+  font-weight: bold;
+}
+
+.active-link i,
+.active-link span {
+  color: #0d6efd !important;
+}
+
+/* Logout */
+.logout-btn span,
+.logout-btn i {
+  color: #dc3545;
+}

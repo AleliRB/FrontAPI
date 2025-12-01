@@ -1,0 +1,80 @@
+body {
+        font-family: 'Inter', sans-serif;
+        background: #f7f7f7;
+    }
+
+    .form-wrapper {
+        max-width: 580px;
+        margin: 50px auto;
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 35px 40px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e7e7e7;
+    }
+
+    .form-title {
+        font-weight: 300;
+        font-size: 26px;
+        color: #555;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        font-size: 14px;
+        color: #7d7d7d;
+        font-weight: 300;
+    }
+
+    .form-control {
+        border-radius: 12px;
+        border: 1px solid #d9d9d9;
+        padding: 12px 14px;
+        font-size: 15px;
+        font-weight: 300;
+        transition: 0.2s ease;
+        color: #555;
+    }
+
+    .form-control:focus {
+        border-color: #c7c7c7;
+        box-shadow: 0 0 0 3px rgba(200, 200, 200, 0.25);
+    }
+.btn-submit {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    font-weight: 300;
+    background: #000000;   /* Negro elegante */
+    color: #ffffff;
+    transition: 0.25s ease;
+}
+
+.btn-submit:hover {
+    background: #6c6c6c;   /* Gris suave, bonito */
+    color: #ffffff;
+}
+.btn-cancel {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 13px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    font-weight: 300;
+    background: #3f3f3fc7;    /* Negro elegante */
+    color: #ffffff;
+    text-decoration: none;  /* Quita el subrayado */
+    transition: 0.25s ease;
+}
+
+.btn-cancel:hover {
+    background: #6c6c6c;    /* Gris suave */
+    color: #ffffff;
+}
