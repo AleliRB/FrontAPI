@@ -1,43 +1,63 @@
-.top-menu {
-  height: 70px;
-  background: white;
-  /* position: fixed;  ❌ ELIMINADO */
-  /* top: 0;          ❌ ELIMINADO */
-  /* left: 0;         ❌ ELIMINADO */
-  /* right: 0;        ❌ ELIMINADO */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* ancho del sidebar */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   z-index: 2000;
+  padding-left: 15px; /* separación desde el borde */
+  padding-right: 15px;
+  padding-top: 0;
 }
 
-/* Estilos del menú */
-.nav-link span {
+
+/* Contenido principal */
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+/* Links */
+.sidebar .nav-link {
+  color: #000;
   font-size: 0.85rem;
   letter-spacing: 0.5px;
-  color: #000;
+  margin-bottom: 50px; /* separación entre opciones */
+  border-radius: 5px;
+  padding-left: 10px;  /* ← espacio extra dentro de cada link */
 }
 
-.nav-link i {
+/* Iconos */
+.sidebar .nav-link i {
   color: #000;
 }
 
 /* Hover */
-.nav-link:hover span,
-.nav-link:hover i {
+.sidebar .nav-link:hover span,
+.sidebar .nav-link:hover i {
   text-decoration: underline;
 }
 
 /* Activo */
-.active-link {
+.sidebar .active-link {
   color: #0d6efd !important;
   font-weight: bold;
 }
 
-.active-link i,
-.active-link span {
+.sidebar .active-link i,
+.sidebar .active-link span {
   color: #0d6efd !important;
 }
 
 /* Logout */
-.logout-btn span,
-.logout-btn i {
+.sidebar .logout-btn span,
+.sidebar .logout-btn i {
   color: #dc3545;
+}
+
+.sidebar-brand {
+  font-size: 1rem; /* Ajusta el tamaño a tu gusto */
+  font-weight:400; /* Opcional: para que resalte más */
 }

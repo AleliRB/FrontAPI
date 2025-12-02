@@ -1,56 +1,36 @@
-<nav class="navbar navbar-expand-lg bg-white top-menu shadow-sm px-4">
+<nav class="sidebar bg-white shadow-sm">
+ <p class="sidebar-brand d-block text-center py-5" style="font-size: 1.8rem;">
+  <i class="bi bi-cup-straw me-2"></i> Mr.Bear
+</p>
 
-  <!-- LOGO O TÍTULO (OPCIONAL) -->
-  <a class="navbar-brand fw-bold me-5">
-    <i class="bi bi-speedometer2 me-2"></i> Mr.Bear
-  </a>
-
-  <!-- BOTÓN PARA MÓVIL -->
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuTopNav">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
   <!-- MENÚ -->
-  <div class="collapse navbar-collapse" id="menuTopNav">
-    
-    <ul class="navbar-nav me-auto gap-3">
-
-      <li class="nav-item">
-        <a routerLink="registro-admin"
-           routerLinkActive="active-link"
-           class="nav-link d-flex align-items-center">
-          <i class="bi bi-person me-2 fs-5"></i>
-          <span class="text-uppercase">Registrar Administrador</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a routerLink="registro-empleados"
-           routerLinkActive="active-link"
-           class="nav-link d-flex align-items-center">
-          <i class="bi bi-person-badge me-2 fs-5"></i>
-          <span class="text-uppercase">Registrar Empleado</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a routerLink="asignar-roles"
-           routerLinkActive="active-link"
-           class="nav-link d-flex align-items-center">
-          <i class="bi bi-people me-2 fs-5"></i>
-          <span class="text-uppercase">Asignar Roles</span>
-        </a>
-      </li>
-
-    </ul>
-
-    <!-- CERRAR SESIÓN alineado a la derecha -->
-    <div>
-      <a class="nav-link logout-btn d-flex align-items-center text-danger">
-        <i class="bi bi-box-arrow-right me-2 fs-5"></i>
-        <span class="text-uppercase fw-bold">Cerrar Sesión</span>
+  <ul class="nav flex-column mt-4">
+    <li class="nav-item">
+      <a routerLink="registro-admin" routerLinkActive="active-link" class="nav-link d-flex align-items-center py-3 px-3">
+        <i class="bi bi-person me-2 fs-5"></i>
+        <span class="text-uppercase">Registrar Administrador</span>
       </a>
-    </div>
+    </li>
+    <li class="nav-item">
+      <a routerLink="registro-empleados" routerLinkActive="active-link" class="nav-link d-flex align-items-center py-3 px-3">
+        <i class="bi bi-person-badge me-2 fs-5"></i>
+        <span class="text-uppercase">Registrar Empleado</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="asignar-roles" routerLinkActive="active-link" class="nav-link d-flex align-items-center py-3 px-3">
+        <i class="bi bi-people me-2 fs-5"></i>
+        <span class="text-uppercase">Asignar Roles</span>
+      </a>
+    </li>
+  </ul>
 
+  <!-- CERRAR SESIÓN -->
+  <div class="mt-auto text-center py-3">
+    <a class="nav-link logout-btn d-flex align-items-center justify-content-center text-danger py-3">
+      <i class="bi bi-box-arrow-right me-2 fs-5"></i>
+      <span class="text-uppercase fw-bold">Cerrar Sesión</span>
+    </a>
   </div>
 </nav>

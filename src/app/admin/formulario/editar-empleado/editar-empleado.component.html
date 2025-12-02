@@ -1,1 +1,4 @@
-El Id del empleado es {{id}}
+@if(modelo){
+    <app-formulario-empleado titulo="Editar Empleado" [modelo]="modelo"
+    (posteoFormulario)="guardarCambios($event)"></app-formulario-empleado>
+}

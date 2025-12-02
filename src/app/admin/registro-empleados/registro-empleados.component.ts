@@ -12,11 +12,22 @@ import { MatTableModule } from '@angular/material/table';
 export class RegistroEmpleadosComponent {
  empleadoService=inject(EmpleadoService);
  empleados?: Empleado[];
- columnasAMostrar=['ID','Nombre','Apellido','DNI','Telefono','Email','Direccion','Acciones'];
+ columnasAMostrar=['Nombre','Apellido','DNI','Telefono','Email','Direccion','Acciones'];
+
  constructor(){
-  this.empleadoService.obtenerTodos().subscribe(empleados=>{
+  this.cargarEmpleados();
+ }
+
+ cargarEmpleados(){
+   this.empleadoService.obtenerTodos().subscribe(empleados=>{
     
     this.empleados= empleados;
+  });
+ }
+
+ borrar(id:number){
+  this.empleadoService.borrar(id).subscribe(()=>{
+ this.cargarEmpleados();
   });
  }
 }

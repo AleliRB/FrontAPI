@@ -1,3 +1,4 @@
-.contenedor{
-    margin: 0 100px;
+.contenedor {
+  margin-left: 250px; /* mismo ancho del sidebar */
+  padding: 20px;
 }
