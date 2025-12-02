@@ -3,7 +3,9 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { EmpleadoService } from '../../../empleado.service';
 import { Empleado, EmpleadoCreacion } from '../../../models/empleado.models';
+
 import { CommonModule } from '@angular/common';
+import { TipoEmpleadoService } from '../../../tipo-empleado.service';
 
 @Component({
   selector: 'app-formulario-empleado',
@@ -14,7 +16,8 @@ import { CommonModule } from '@angular/common';
 export class FormularioEmpleadoComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
   empleadoService = inject(EmpleadoService);
-  
+  tipoEmpleadoService = inject(TipoEmpleadoService);
+
   @Input({ required: true })
   titulo!: string;
 
@@ -24,12 +27,30 @@ export class FormularioEmpleadoComponent implements OnInit {
   @Output()
   posteoFormulario = new EventEmitter<EmpleadoCreacion>();
 
-  tiposEmpleado = [
-    { id: 1, nombre: 'Administrador' },
-    { id: 2, nombre: 'Secretario' },
-    { id: 3, nombre: 'Almacenero' },
-    { id: 4, nombre: 'Vendedor' }
-  ];
+  tiposEmpleado: any[] = [];
+
+  ngOnInit(): void {
+    // Cargar tipos de empleado desde la API
+    this.tipoEmpleadoService.obtenerTodos().subscribe(tipos => {
+      this.tiposEmpleado = tipos.map(t => ({
+        id: t.idTipEmp,
+        nombre: t.nombre
+      }));
+    });
+
+    // Si hay un modelo (editar), cargar los datos
+    if (this.modelo !== undefined) {
+      this.form.patchValue({
+        nombre: this.modelo.nombre,
+        apellido: this.modelo.apellido,
+        dni: this.modelo.dni,
+        telefono: this.modelo.telefono,
+        email: this.modelo.email,
+        direccion: this.modelo.direccion,
+        idTipEmp: this.modelo.idTipEmp
+      });
+    }
+  }
 
   form = this.formBuilder.group({
     nombre: [''],
@@ -41,22 +62,8 @@ export class FormularioEmpleadoComponent implements OnInit {
     idTipEmp: [1]
   });
 
-  ngOnInit(): void {
-    if (this.modelo !== undefined) {
-      this.form.patchValue({
-        nombre: this.modelo.nombre,
-        apellido: this.modelo.apellido,
-        dni: this.modelo.dni,
-        telefono: this.modelo.telefono,
-        email: this.modelo.email,
-        direccion: this.modelo.direccion,
-        idTipEmp: this.modelo.idTipEmp // ← Ahora sí funciona
-      });
-    }
-  }
-
   guardarCambios() {
-    const empleado = this.form.value as EmpleadoCreacion;
+    let empleado = this.form.value as EmpleadoCreacion;
     this.posteoFormulario.emit(empleado);
   }
 }

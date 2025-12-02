@@ -6,6 +6,9 @@ import { RegistroEmpleadosComponent } from './admin/registro-empleados/registro-
 import { CrearEmpleadoComponent } from './admin/formulario/crear-empleado/crear-empleado.component';
 
 import { EditarEmpleadoComponent } from './admin/formulario/editar-empleado/editar-empleado.component';
+import { RegistroCategoriasComponent } from './admin/registro-categorias/registro-categorias.component';
+import { CrearCategoriaComponent } from './admin/formulario/crear-categoria/crear-categoria.component';
+import { EditarCategoriaComponent } from './admin/formulario/editar-categoria/editar-categoria.component';
 
 
 export const routes: Routes = [
@@ -25,6 +28,14 @@ export const routes: Routes = [
     },
     {
         path:'registro-empleados/editar/:id', component:EditarEmpleadoComponent
-    }
-    
+    },
+    {
+        path:'registro-categorias', component:RegistroCategoriasComponent
+    },
+    {
+        path:'crear-categoria', component:CrearCategoriaComponent
+    },
+   {
+    path:'categorias/editar/:id', component:EditarCategoriaComponent
+   }
 ];

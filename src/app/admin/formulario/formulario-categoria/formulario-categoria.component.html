@@ -1,0 +1,18 @@
+<div class="form-wrapper">
+  <h3 class="form-title">{{titulo}}</h3>
+
+  <form (submit)="guardarCambios()" [formGroup]="form">
+
+    <div class="mb-3">
+      <label class="form-label">Descripción</label>
+      <input 
+        type="text" 
+        class="input-field" 
+        [formControl]="form.controls.descripcion" 
+        placeholder="Nombre de la categoría">
+    </div>
+
+    <button type="submit" class="btn-submit">Guardar</button>
+    <a routerLink="/registro-categorias" class="btn-cancel">Cancelar</a>
+  </form>
+</div>
