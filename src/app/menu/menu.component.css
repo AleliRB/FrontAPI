@@ -24,7 +24,7 @@
   color: #000;
   font-size: 0.85rem;
   letter-spacing: 0.5px;
-  margin-bottom: 50px; /* separación entre opciones */
+  margin-bottom: 20px; /* separación entre opciones */
   border-radius: 5px;
   padding-left: 10px;  /* ← espacio extra dentro de cada link */
 }
