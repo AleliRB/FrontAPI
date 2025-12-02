@@ -8,11 +8,7 @@
 @if (productos) {
   <table mat-table [dataSource]="productos" class="mat-elevation-z8 styled-table">
 
-    <!-- ID -->
-    <ng-container matColumnDef="ID">  
-      <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let producto">{{ producto.idProd }}</td>
-    </ng-container>
+    
 
     <!-- Nombre -->
     <ng-container matColumnDef="Nombre">  

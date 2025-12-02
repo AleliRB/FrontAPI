@@ -3,6 +3,8 @@ import { FormularioProductoComponent } from "../formulario-producto/formulario-p
 import { ProductoService } from '../../../producto.service';
 import { Producto, ProductoCreacion } from '../../../models/producto.models';
 import { Router } from '@angular/router';
+import { CategoriaService } from '../../../categoria.service';
+import { Categoria } from '../../../models/categoria.models';
 
 @Component({
   selector: 'app-editar-producto',
@@ -15,12 +17,20 @@ export class EditarProductoComponent {
   id!: number;
 
   productoService = inject(ProductoService);
+  categoriaService = inject(CategoriaService);
   router = inject(Router);
   modelo?: Producto;
 
+  categorias: Categoria[] = [];
+    
   ngOnInit(): void {
+    // Cargar producto
     this.productoService.obtenerPorId(this.id).subscribe(producto => {
       this.modelo = producto;
+    });
+     // Cargar categorías
+    this.categoriaService.obtenerTodos().subscribe(cats => {
+      this.categorias = cats;
     });
   }
 

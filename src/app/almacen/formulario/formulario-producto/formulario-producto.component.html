@@ -59,15 +59,23 @@
     </div>
 
     <!-- CATEGORÍA -->
-    <div class="mb-3">
-      <label class="form-label">Categoría</label>
-      <input 
-        type="number"
-        class="input-field"
-        formControlName="idCategoria"
-        placeholder="ID de categoría"
-      >
-    </div>
+<div class="mb-3">
+  <label class="form-label">Categoría</label>
+
+  <select
+    class="input-field"
+    [formControl]="form.controls.idCategoria">
+
+    <option value="">-- Seleccione categoría --</option>
+
+    <option *ngFor="let cat of categorias" [value]="cat.idCat">
+      {{ cat.descripcion }}
+    </option>
+
+  </select>
+</div>
+
+
 
     <!-- PROVEEDOR -->
     <div class="mb-3">

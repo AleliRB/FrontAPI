@@ -15,7 +15,6 @@ export class RegistroProductosComponent {
   productos?: Producto[];
   
   columnasAMostrar = [
-    'ID',
     'Nombre',
     'Descripcion',
     'Categoria',

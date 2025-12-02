@@ -3,10 +3,12 @@ import { Producto, ProductoCreacion } from '../../../models/producto.models';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Categoria } from '../../../models/categoria.models';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-formulario-producto',
-  imports: [ReactiveFormsModule, RouterLink, CommonModule],
+  imports: [ReactiveFormsModule, RouterLink, CommonModule,MatSelectModule],
   templateUrl: './formulario-producto.component.html',
   styleUrl: './formulario-producto.component.css'
 })
@@ -17,6 +19,10 @@ export class FormularioProductoComponent implements OnInit {
 
   @Input()
   modelo?: Producto;
+  
+  @Input()
+  categorias: Categoria[] = [];
+
 
   @Output()
   posteoFormulario = new EventEmitter<ProductoCreacion>();
@@ -27,11 +33,13 @@ export class FormularioProductoComponent implements OnInit {
     nombre: ['', Validators.required],
     ubicacion: [''],
     descripcion: [''],
+    idCat: [null],
     stockTotal: [0, Validators.required],
     stockActual: [0, Validators.required],
     idCategoria: [0, Validators.required],
     idProveedor: [0, Validators.required]
   });
+  
 
   ngOnInit(): void {
     if (this.modelo) {
