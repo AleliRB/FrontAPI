@@ -16,7 +16,7 @@ export class RegistroProveedorComponent {
   proveedores?: Proveedor[];
   
   columnasAMostrar = [
-    'ID',
+  
     'RazonSocial',
     'Direccion',
     'Telefono',

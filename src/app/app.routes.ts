@@ -12,6 +12,9 @@ import { EditarCategoriaComponent } from './admin/formulario/editar-categoria/ed
 import { RegistroProveedorComponent } from './almacen/registro-proveedor/registro-proveedor.component';
 import { CrearProveedorComponent } from './almacen/formulario/crear-proveedor/crear-proveedor.component';
 import { EditarProveedorComponent } from './almacen/formulario/editar-proveedor/editar-proveedor.component';
+import { RegistroProductosComponent } from './almacen/registro-productos/registro-productos.component';
+import { EditarProductoComponent } from './almacen/formulario/editar-producto/editar-producto.component';
+import { CrearProductoComponent } from './almacen/formulario/crear-producto/crear-producto.component';
 
 
 export const routes: Routes = [
@@ -49,5 +52,14 @@ export const routes: Routes = [
    },
    {
     path:'proveedores/editar/:id', component:EditarProveedorComponent   
-   }
+   },
+   {
+    path:'registro-productos', component:RegistroProductosComponent
+   },
+   {
+    path:'productos/editar/:id', component:EditarProductoComponent
+   },
+    {
+    path:'crear-producto', component:CrearProductoComponent
+   },
 ];

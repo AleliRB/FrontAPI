@@ -1,0 +1,7 @@
+@if(modelo){
+  <app-formulario-producto 
+    titulo="Editar Categoría" 
+    [modelo]="modelo"
+    (posteoFormulario)="guardarCambios($event)">
+  </app-formulario-producto>
+}

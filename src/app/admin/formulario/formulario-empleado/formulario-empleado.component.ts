@@ -3,7 +3,6 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { EmpleadoService } from '../../../empleado.service';
 import { Empleado, EmpleadoCreacion } from '../../../models/empleado.models';
-
 import { CommonModule } from '@angular/common';
 import { TipoEmpleadoService } from '../../../tipo-empleado.service';
 

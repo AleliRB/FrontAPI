@@ -1,0 +1,88 @@
+<div class="form-wrapper">
+  <h3 class="form-title">{{ titulo }}</h3>
+
+  <form (submit)="guardarCambios()" [formGroup]="form">
+
+    <!-- NOMBRE -->
+    <div class="mb-3">
+      <label class="form-label">Nombre del Producto</label>
+      <input 
+        type="text"
+        class="input-field"
+        formControlName="nombre"
+        placeholder="Ejemplo: Gaseosa Coca Cola"
+      >
+    </div>
+
+    <!-- UBICACIÓN -->
+    <div class="mb-3">
+      <label class="form-label">Ubicación</label>
+      <input 
+        type="text"
+        class="input-field"
+        formControlName="ubicacion"
+        placeholder="Ejemplo: Pasillo 3, Estante B"
+      >
+    </div>
+
+    <!-- DESCRIPCIÓN -->
+    <div class="mb-3">
+      <label class="form-label">Descripción</label>
+      <input 
+        type="text"
+        class="input-field"
+        formControlName="descripcion"
+        placeholder="Descripción del producto"
+      >
+    </div>
+
+    <!-- STOCK TOTAL -->
+    <div class="mb-3">
+      <label class="form-label">Stock Total</label>
+      <input 
+        type="number"
+        class="input-field"
+        formControlName="stockTotal"
+        placeholder="Ejemplo: 50"
+      >
+    </div>
+
+    <!-- STOCK ACTUAL -->
+    <div class="mb-3">
+      <label class="form-label">Stock Actual</label>
+      <input 
+        type="number"
+        class="input-field"
+        formControlName="stockActual"
+        placeholder="Ejemplo: 20"
+      >
+    </div>
+
+    <!-- CATEGORÍA -->
+    <div class="mb-3">
+      <label class="form-label">Categoría</label>
+      <input 
+        type="number"
+        class="input-field"
+        formControlName="idCategoria"
+        placeholder="ID de categoría"
+      >
+    </div>
+
+    <!-- PROVEEDOR -->
+    <div class="mb-3">
+      <label class="form-label">Proveedor</label>
+      <input 
+        type="number"
+        class="input-field"
+        formControlName="idProveedor"
+        placeholder="ID del proveedor"
+      >
+    </div>
+
+    <!-- BOTONES -->
+    <button type="submit" class="btn-submit">Guardar</button>
+    <a routerLink="/registro-productos" class="btn-cancel">Cancelar</a>
+
+  </form>
+</div>
