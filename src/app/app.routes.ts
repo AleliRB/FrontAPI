@@ -10,6 +10,8 @@ import { RegistroCategoriasComponent } from './admin/registro-categorias/registr
 import { CrearCategoriaComponent } from './admin/formulario/crear-categoria/crear-categoria.component';
 import { EditarCategoriaComponent } from './admin/formulario/editar-categoria/editar-categoria.component';
 import { RegistroProveedorComponent } from './almacen/registro-proveedor/registro-proveedor.component';
+import { CrearProveedorComponent } from './almacen/formulario/crear-proveedor/crear-proveedor.component';
+import { EditarProveedorComponent } from './almacen/formulario/editar-proveedor/editar-proveedor.component';
 
 
 export const routes: Routes = [
@@ -43,6 +45,9 @@ export const routes: Routes = [
     path:'registro-proveedores', component:RegistroProveedorComponent
    },
    {
-    path:'crear-proveedor', 
+    path:'crear-proveedor', component:CrearProveedorComponent
+   },
+   {
+    path:'proveedores/editar/:id', component:EditarProveedorComponent   
    }
 ];

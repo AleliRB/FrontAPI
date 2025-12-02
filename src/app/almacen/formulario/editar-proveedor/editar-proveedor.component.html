@@ -1,0 +1,7 @@
+@if(modelo){
+  <app-formulario-proveedor
+    titulo="Editar Proveedor" 
+    [modelo]="modelo"
+    (posteoFormulario)="guardarCambios($event)">
+  </app-formulario-proveedor>
+}
