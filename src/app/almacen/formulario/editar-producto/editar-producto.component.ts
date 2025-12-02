@@ -5,6 +5,8 @@ import { Producto, ProductoCreacion } from '../../../models/producto.models';
 import { Router } from '@angular/router';
 import { CategoriaService } from '../../../categoria.service';
 import { Categoria } from '../../../models/categoria.models';
+import { Proveedor } from '../../../models/proveedor.models';
+import { ProveedorService } from '../../../proveedor.service';
 
 @Component({
   selector: 'app-editar-producto',
@@ -18,10 +20,12 @@ export class EditarProductoComponent {
 
   productoService = inject(ProductoService);
   categoriaService = inject(CategoriaService);
+  proveedorService = inject(ProveedorService);
   router = inject(Router);
   modelo?: Producto;
 
   categorias: Categoria[] = [];
+  proveedores: Proveedor[] = [];
     
   ngOnInit(): void {
     // Cargar producto
@@ -31,6 +35,10 @@ export class EditarProductoComponent {
      // Cargar categorías
     this.categoriaService.obtenerTodos().subscribe(cats => {
       this.categorias = cats;
+    });
+    //Cargar proveedor
+    this.proveedorService.obtenerTodos().subscribe(provs=>{
+      this.proveedores=provs
     });
   }
 

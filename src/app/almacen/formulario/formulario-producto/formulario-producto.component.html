@@ -78,15 +78,21 @@
 
 
     <!-- PROVEEDOR -->
-    <div class="mb-3">
-      <label class="form-label">Proveedor</label>
-      <input 
-        type="number"
-        class="input-field"
-        formControlName="idProveedor"
-        placeholder="ID del proveedor"
-      >
-    </div>
+   <div class="mb-3">
+  <label class="form-label">Proveedor</label>
+
+  <select
+    class="input-field"
+    formControlName="idProveedor">
+
+    <option value="">-- Seleccione proveedor --</option>
+    <option *ngFor="let p of proveedores" [value]="p.id">
+      {{ p.razonSocial }}
+    </option>
+
+  </select>
+</div>
+
 
     <!-- BOTONES -->
     <button type="submit" class="btn-submit">Guardar</button>

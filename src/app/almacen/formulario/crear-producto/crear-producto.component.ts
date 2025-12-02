@@ -5,6 +5,8 @@ import { ProductoCreacion } from '../../../models/producto.models';
 import { Router } from '@angular/router';
 import { CategoriaService } from '../../../categoria.service';
 import { Categoria } from '../../../models/categoria.models';
+import { ProveedorService } from '../../../proveedor.service';
+import { Proveedor } from '../../../models/proveedor.models';
 
 @Component({
   selector: 'app-crear-producto',
@@ -16,20 +18,28 @@ export class CrearProductoComponent {
  router = inject(Router);
   productoService = inject(ProductoService);
   categoriaService = inject(CategoriaService);
-  
+  proveedorService = inject(ProveedorService);
 
+  
+ proveedores: Proveedor[] = [];
   categorias: Categoria[] = [];
 
   constructor() {
     this.cargarCategorias();
   }
 
-  cargarCategorias() {
-    this.categoriaService.obtenerTodos().subscribe({
-      next: categorias => this.categorias = categorias,
-      error: e => console.error("Error cargando categorías", e)
-    });
-  }
+cargarCategorias() {
+  this.categoriaService.obtenerTodos().subscribe({
+    next: categorias => this.categorias = categorias,
+    error: e => console.error("Error cargando categorías", e)
+  });
+
+  this.proveedorService.obtenerTodos().subscribe({
+    next: proveedores => this.proveedores = proveedores,  // ← AQUÍ EL CAMBIO
+    error: e => console.error("Error cargando proveedores", e)
+  });
+}
+
   guardarCambios(producto: ProductoCreacion) {
     this.productoService.crear(producto).subscribe(() => {
       this.router.navigate(["/registro-productos"]);

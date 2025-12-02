@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Categoria } from '../../../models/categoria.models';
 import { MatSelectModule } from '@angular/material/select';
+import { Proveedor } from '../../../models/proveedor.models';
 
 @Component({
   selector: 'app-formulario-producto',
@@ -20,6 +21,9 @@ export class FormularioProductoComponent implements OnInit {
   @Input()
   modelo?: Producto;
   
+  @Input()
+  proveedores: Proveedor[] = [];
+
   @Input()
   categorias: Categoria[] = [];
 
@@ -37,7 +41,9 @@ export class FormularioProductoComponent implements OnInit {
     stockTotal: [0, Validators.required],
     stockActual: [0, Validators.required],
     idCategoria: [0, Validators.required],
-    idProveedor: [0, Validators.required]
+   idProveedor: [null as number | null, Validators.required],
+
+    
   });
   
 
