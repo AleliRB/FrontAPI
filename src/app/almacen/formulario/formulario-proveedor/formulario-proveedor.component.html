@@ -1,0 +1,53 @@
+<div class="form-wrapper">
+  <h3 class="form-title">{{titulo}}</h3>
+
+  <form (submit)="guardarCambios()" [formGroup]="form">
+
+    <div class="mb-3">
+      <label class="form-label">Razón Social</label>
+      <input 
+        type="text" 
+        class="input-field" 
+        [formControl]="form.controls.razonSocial" 
+        placeholder="Nombre de la empresa">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Dirección</label>
+      <input 
+        type="text" 
+        class="input-field" 
+        [formControl]="form.controls.direccion" 
+        placeholder="Dirección del proveedor">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Teléfono</label>
+      <input 
+        type="number" 
+        class="input-field" 
+        [formControl]="form.controls.telefono" 
+        placeholder="Número de teléfono">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input 
+        type="email" 
+        class="input-field" 
+        [formControl]="form.controls.email" 
+        placeholder="correo@proveedor.com">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Estado</label>
+      <select class="input-field" [formControl]="form.controls.estado">
+        <option value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-submit">Guardar</button>
+    <a routerLink="/registro-proveedores" class="btn-cancel">Cancelar</a>
+  </form>
+</div>

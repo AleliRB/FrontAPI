@@ -1,0 +1,106 @@
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-top: 45px;
+}
+
+.btn-registrar {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.2s ease;
+}
+
+.btn-registrar:hover {
+  background: #313131;
+}
+
+.material-icons {
+  font-size: 18px;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.styled-table th {
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  background-color: #f8f9fa;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.styled-table td {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+.acciones-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.acciones-cell i {
+  font-size: 1.2rem;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.acciones-cell a:hover i {
+  transform: scale(1.2);
+  color: #1a73e8;
+}
+
+.acciones-cell button:hover i {
+  transform: scale(1.2);
+  color: #e63946;
+}
+
+.mat-flat-button {
+  min-width: 36px;
+  height: 36px;
+  padding: 0;
+  background-color: #f1f3f5;
+  border-radius: 6px;
+}
+
+.styled-table tr.mat-row:hover td {
+  background-color: #e9f2ff;
+}
+
+.badge-success {
+  background-color: #28a745;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-warning {
+  background-color: #ffc107;
+  color: #212529;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
