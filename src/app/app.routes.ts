@@ -15,6 +15,11 @@ import { EditarProveedorComponent } from './almacen/formulario/editar-proveedor/
 import { RegistroProductosComponent } from './almacen/registro-productos/registro-productos.component';
 import { EditarProductoComponent } from './almacen/formulario/editar-producto/editar-producto.component';
 import { CrearProductoComponent } from './almacen/formulario/crear-producto/crear-producto.component';
+import { RegistroUsuariosComponent } from './admin/registro-usuarios/registro-usuarios.component';
+import { CrearUsuarioComponent } from './admin/formulario/crear-usuario/crear-usuario.component';
+import { RegistroSalidaComponent } from './almacen/registro-salida/registro-salida.component';
+import { CrearSalidaComponent } from './almacen/formulario/crear-salida/crear-salida.component';
+import { EditarSalidaComponent } from './almacen/formulario/editar-salida/editar-salida.component';
 
 
 export const routes: Routes = [
@@ -62,4 +67,11 @@ export const routes: Routes = [
     {
     path:'crear-producto', component:CrearProductoComponent
    },
+   // USUARIOS
+  { path: 'registro-usuarios', component: RegistroUsuariosComponent },
+  { path: 'crear-usuario', component: CrearUsuarioComponent },
+  // SALIDAS
+  { path: 'registro-salidas', component: RegistroSalidaComponent },
+  { path: 'crear-salida', component: CrearSalidaComponent },
+  { path: 'salidas/editar/:id', component: EditarSalidaComponent }
 ];

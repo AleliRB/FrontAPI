@@ -1,0 +1,7 @@
+@if(modelo){
+  <app-formulario-salida 
+    titulo="Editar Salida" 
+    [modelo]="modelo"
+    (posteoFormulario)="guardarCambios($event)">
+  </app-formulario-salida>
+}

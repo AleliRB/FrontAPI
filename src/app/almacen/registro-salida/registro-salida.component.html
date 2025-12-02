@@ -1,0 +1,50 @@
+<div class="btn-container">
+  <button class="btn-registrar" routerLink="/crear-salida">
+    <span class="material-icons">output</span>
+    Nueva Salida
+  </button>
+</div>
+
+@if (salidas) {
+  <table mat-table [dataSource]="salidas" class="mat-elevation-z8 styled-table">
+
+    <ng-container matColumnDef="ID">  
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let salida">{{salida.idSalida}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Destino">  
+      <th mat-header-cell *matHeaderCellDef>Destino</th>
+      <td mat-cell *matCellDef="let salida">{{salida.destinoSalida}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="FechaSalida">  
+      <th mat-header-cell *matHeaderCellDef>Fecha Salida</th>
+      <td mat-cell *matCellDef="let salida">{{salida.fechaSalida | date:'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Empleado">  
+      <th mat-header-cell *matHeaderCellDef>Empleado</th>
+      <td mat-cell *matCellDef="let salida">{{salida.empleadoNombre}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Acciones">  
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let salida" class="acciones-cell">
+        
+        <a mat-flat-button [routerLink]="['/salidas/editar', salida.idSalida]">
+          <i class="bi bi-pencil-fill"></i>
+        </a>
+        <button mat-flat-button color="warn" (click)="borrar(salida.idSalida)">
+          <i class="bi bi-trash-fill"></i>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
+
+  </table>
+}

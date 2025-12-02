@@ -1,0 +1,40 @@
+<div class="form-wrapper">
+  <h3 class="form-title">{{titulo}}</h3>
+
+  <form (submit)="guardarCambios()" [formGroup]="form">
+
+    <div class="mb-3">
+      <label class="form-label">Destino de Salida</label>
+      <input 
+        type="text" 
+        class="input-field" 
+        [formControl]="form.controls.destinoSalida" 
+        placeholder="Ej: Oficina Lima, Cliente XYZ">
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Fecha de Salida</label>
+        <input 
+          type="date" 
+          class="input-field" 
+          [formControl]="form.controls.fechaSalida">
+      </div>
+    </div>
+
+    
+
+    <div class="mb-3">
+      <label class="form-label">Empleado Responsable</label>
+      <select class="input-field" [formControl]="form.controls.idEmp">
+        <option value="0">Seleccione un empleado</option>
+        <option *ngFor="let empleado of empleados" [value]="empleado.idEmp">
+          {{empleado.nombre}} {{empleado.apellido}}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-submit">Guardar</button>
+    <a routerLink="/registro-salidas" class="btn-cancel">Cancelar</a>
+  </form>
+</div>

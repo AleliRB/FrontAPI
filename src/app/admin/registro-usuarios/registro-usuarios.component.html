@@ -1,0 +1,67 @@
+<div class="btn-container">
+  <button class="btn-registrar" routerLink="/crear-usuario">
+    <span class="material-icons">person_add</span>
+    Crear Usuario
+  </button>
+</div>
+
+@if (usuarios) {
+  <table mat-table [dataSource]="usuarios" class="mat-elevation-z8 styled-table">
+
+
+    <ng-container matColumnDef="Usuario">  
+      <th mat-header-cell *matHeaderCellDef>Usuario</th>
+      <td mat-cell *matCellDef="let usuario">{{usuario.nombre}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Empleado">  
+      <th mat-header-cell *matHeaderCellDef>Empleado</th>
+      <td mat-cell *matCellDef="let usuario">{{usuario.empleadoNombre}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="TipoUsuario">  
+      <th mat-header-cell *matHeaderCellDef>Tipo</th>
+      <td mat-cell *matCellDef="let usuario">
+        <span class="badge-tipo">{{usuario.tipoUsuario}}</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Estado">  
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let usuario">
+        <span 
+          *ngIf="usuario.estadoUser" 
+          class="badge-success"
+          (click)="cambiarEstado(usuario.idUser, usuario.estadoUser)"
+          style="cursor: pointer;">
+          ✓ Activo
+        </span>
+        <span 
+          *ngIf="!usuario.estadoUser" 
+          class="badge-warning"
+          (click)="cambiarEstado(usuario.idUser, usuario.estadoUser)"
+          style="cursor: pointer;">
+          ✗ Inactivo
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="FechaCreacion">  
+      <th mat-header-cell *matHeaderCellDef>Fecha Creación</th>
+      <td mat-cell *matCellDef="let usuario">{{usuario.fechaCreacion | date:'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Acciones">  
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let usuario" class="acciones-cell">
+        <button mat-flat-button color="warn" (click)="borrar(usuario.idUser)">
+          <i class="bi bi-trash-fill"></i>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
+
+  </table>
+}

@@ -1,6 +1,6 @@
 export interface UsuarioCreacion {
   nombre: string;
-  contraseñaHash: string;
+  contrasenaHash: string;
   tipoUsuario: string;
   idEmp: number;
 }

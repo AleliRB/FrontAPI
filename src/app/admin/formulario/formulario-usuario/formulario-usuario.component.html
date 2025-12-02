@@ -1,0 +1,55 @@
+<div class="form-wrapper">
+  <h3 class="form-title">{{titulo}}</h3>
+
+  <form (submit)="guardarCambios()" [formGroup]="form">
+
+    <div class="mb-3">
+      <label class="form-label">Empleado</label>
+      <select class="input-field" [formControl]="form.controls.idEmp">
+        <option value="0">Seleccione un empleado</option>
+        <option *ngFor="let empleado of empleadosSinUsuario" [value]="empleado.idEmp">
+          {{empleado.nombre}} {{empleado.apellido}} - DNI: {{empleado.dni}}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Nombre de Usuario</label>
+      <input 
+        type="text" 
+        class="input-field" 
+        [formControl]="form.controls.nombre" 
+        placeholder="usuario123">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Contraseña</label>
+      <div class="password-container">
+        <input 
+          [type]="mostrarPassword ? 'text' : 'password'"
+          class="input-field" 
+          [formControl]="form.controls.contrasenaHash" 
+          placeholder="********">
+        <button 
+          type="button" 
+          class="btn-toggle-password"
+          (click)="togglePassword()">
+          <i [class]="mostrarPassword ? 'bi bi-eye-slash-fill' : 'bi bi-eye-fill'"></i>
+        </button>
+      </div>
+    </div>
+    
+
+    <div class="mb-3">
+      <label class="form-label">Tipo de Usuario</label>
+      <select class="input-field" [formControl]="form.controls.tipoUsuario">
+        <option value="Administrador">Administrador</option>
+        <option value="Secretario">Secretario</option>
+        <option value="Almacenero">Almacenero</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-submit">Crear Usuario</button>
+    <a routerLink="/registro-usuarios" class="btn-cancel">Cancelar</a>
+  </form>
+</div>
