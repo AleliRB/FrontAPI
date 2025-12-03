@@ -4,10 +4,13 @@ import { SalidaService } from '../../salida.service';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import Swal from 'sweetalert2';
+import { LoadingComponent } from "../../compartidos/componentes/loading/loading.component";
 
 @Component({
   selector: 'app-registro-salida',
-  imports: [RouterLink, MatTableModule, CommonModule],
+  imports: [RouterLink, MatTableModule, CommonModule, SweetAlert2Module, LoadingComponent],
   templateUrl: './registro-salida.component.html',
   styleUrl: './registro-salida.component.css'
 })
@@ -37,28 +40,14 @@ export class RegistroSalidaComponent {
   }
 
 
-
-  registrarDevolucion(id: number) {
-    const fechaDevolucion = new Date();
-    if (confirm('¿Confirmar devolución de esta salida?')) {
-      this.salidaService.registrarDevolucion(id, fechaDevolucion).subscribe(() => {
-        this.cargarSalidas();
-      });
-    }
-  }
-
   borrar(id: number) {
-    if (confirm('¿Estás seguro de eliminar esta salida?')) {
       this.salidaService.borrar(id).subscribe(() => {
-        this.cargarSalidas();
-      }, error => {
-        console.error('Error al borrar:', error);
+       Swal.fire("Exitoso", "El registro ha sido borrado exitosamente ", 'success')
+       this.cargarSalidas();
       });
     }
   }
 
-  esPendiente(fechaDevolucion?: Date): boolean {
-    return !fechaDevolucion || new Date(fechaDevolucion) > new Date();
-  }
 
-}
+
+

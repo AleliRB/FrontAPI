@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Proveedor, ProveedorCreacion } from '../../../models/proveedor.models';
 
@@ -35,10 +35,10 @@ export class FormularioProveedorComponent {
   }
 
   form = this.formBuilder.group({
-    razonSocial: [''],
-    direccion: [''],
-    telefono: [0],
-    email: [''],
+    razonSocial: ['',{validators: [Validators.required]}],
+    direccion: ['',{validators: [Validators.required]}],
+    telefono: [0,{validators: [Validators.required]}],
+    email: ['',{validators: [Validators.required]}],
     estado: ['Activo']
   });
 

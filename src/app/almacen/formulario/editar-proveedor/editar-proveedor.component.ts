@@ -3,10 +3,11 @@ import { FormularioProveedorComponent } from "../formulario-proveedor/formulario
 import { ProveedorService } from '../../../proveedor.service';
 import { Proveedor, ProveedorCreacion } from '../../../models/proveedor.models';
 import { Router } from '@angular/router';
+import { LoadingComponent } from "../../../compartidos/componentes/loading/loading.component";
 
 @Component({
   selector: 'app-editar-proveedor',
-  imports: [FormularioProveedorComponent],
+  imports: [FormularioProveedorComponent, LoadingComponent],
   templateUrl: './editar-proveedor.component.html',
   styleUrl: './editar-proveedor.component.css'
 })

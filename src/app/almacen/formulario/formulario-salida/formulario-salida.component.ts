@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmpleadoService } from '../../../empleado.service';
 import { Salida, SalidaCreacion } from '../../../models/salida.models';
 import { CommonModule } from '@angular/common';
@@ -44,9 +44,9 @@ private readonly formBuilder = inject(FormBuilder);
   }
 
   form = this.formBuilder.group({
-    destinoSalida: [''],
+    destinoSalida: ['',{validators: [Validators.required]}],
     fechaSalida: [new Date()],
-    idEmp: [0]
+    idEmp: [0, {validators: [Validators.required]}]
   });
 
   guardarCambios() {

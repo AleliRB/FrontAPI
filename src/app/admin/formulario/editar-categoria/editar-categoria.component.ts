@@ -4,11 +4,14 @@ import { FormularioCategoriaComponent } from "../formulario-categoria/formulario
 import { Router } from '@angular/router';
 import { CategoriaService } from '../../../categoria.service';
 import { Categoria, CategoriaCreacion } from '../../../models/categoria.models';
+import { LoadingComponent } from "../../../compartidos/componentes/loading/loading.component";
+import { extraerErrores } from '../../../compartidos/componentes/funciones/extraerErrores';
+import { MostrarErroresComponent } from "../../../compartidos/componentes/mostrar-errores/mostrar-errores.component";
 
 @Component({
   selector: 'app-editar-categoria',
   standalone: true,
-  imports: [FormularioCategoriaComponent],
+  imports: [FormularioCategoriaComponent, LoadingComponent, MostrarErroresComponent],
   templateUrl: './editar-categoria.component.html',
   styleUrl: './editar-categoria.component.css'
 })
@@ -19,7 +22,7 @@ export class EditarCategoriaComponent implements OnInit {
   categoriaService = inject(CategoriaService);
   router = inject(Router);
   modelo?: Categoria;
-
+ errores: string[]=[];
   ngOnInit(): void {
     this.categoriaService.obtenerPorId(this.id).subscribe(categoria => {
       this.modelo = categoria;
@@ -27,8 +30,16 @@ export class EditarCategoriaComponent implements OnInit {
   }
 
   guardarCambios(categoria: CategoriaCreacion) {
-    this.categoriaService.actualizar(this.id, categoria).subscribe(() => {
-      this.router.navigate(['/registro-categorias']);
-    });
+    this.categoriaService.actualizar(this.id, categoria).subscribe((
+      {
+        next:()=>{
+          this.router.navigate(['/registro-categorias']);
+        }, error: err=>{
+          const errores = extraerErrores(err);
+          this.errores=errores;
+        }
+      }
+    ) 
+    );
   }
 }

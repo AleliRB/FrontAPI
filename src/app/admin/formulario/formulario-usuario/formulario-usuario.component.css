@@ -100,3 +100,16 @@ font-size: 18px;
 .btn-toggle-password:hover {
 color: #000;
 }
+.input-field.input-error {
+  border: 1px solid #e53935; /* rojo */
+  box-shadow: 0 0 4px rgba(229, 57, 53, 0.4);
+}
+.input-field.input-error::placeholder {
+  color: #e53935;
+}
+mat-error {
+  color: #e53935 !important;  /* rojo fuerte */
+  font-size: 0.9rem;
+  margin-top: 4px;
+  display: block;
+}

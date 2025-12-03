@@ -34,14 +34,14 @@ export class FormularioProductoComponent implements OnInit {
   formBuilder = inject(FormBuilder);
 
   form = this.formBuilder.group({
-    nombre: ['', Validators.required],
-    ubicacion: [''],
-    descripcion: [''],
+    nombre: ['', {validators: [Validators.required]}],
+    ubicacion: ['',{validators: [Validators.required]}],
+    descripcion: ['',{validators: [Validators.required]}],
     idCat: [null],
-    stockTotal: [0, Validators.required],
-    stockActual: [0, Validators.required],
-    idCategoria: [0, Validators.required],
-   idProveedor: [null as number | null, Validators.required],
+    stockTotal: [0, {validators: [Validators.required]}],
+    stockActual: [0, {validators: [Validators.required]}],
+    idCategoria: [0, {validators: [Validators.required]}],
+   idProveedor: [null as number | null, {validators: [Validators.required]}],
 
     
   });

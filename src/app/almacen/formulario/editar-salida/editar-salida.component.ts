@@ -3,10 +3,11 @@ import { Router } from '@angular/router';
 import { Salida, SalidaCreacion } from '../../../models/salida.models';
 import { SalidaService } from '../../../salida.service';
 import { FormularioSalidaComponent } from '../formulario-salida/formulario-salida.component';
+import { LoadingComponent } from "../../../compartidos/componentes/loading/loading.component";
 
 @Component({
   selector: 'app-editar-salida',
-  imports: [FormularioSalidaComponent],
+  imports: [FormularioSalidaComponent, LoadingComponent],
   templateUrl: './editar-salida.component.html',
   styleUrl: './editar-salida.component.css'
 })

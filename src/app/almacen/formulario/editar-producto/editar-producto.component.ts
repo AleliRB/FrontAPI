@@ -7,10 +7,11 @@ import { CategoriaService } from '../../../categoria.service';
 import { Categoria } from '../../../models/categoria.models';
 import { Proveedor } from '../../../models/proveedor.models';
 import { ProveedorService } from '../../../proveedor.service';
+import { LoadingComponent } from "../../../compartidos/componentes/loading/loading.component";
 
 @Component({
   selector: 'app-editar-producto',
-  imports: [FormularioProductoComponent],
+  imports: [FormularioProductoComponent, LoadingComponent],
   templateUrl: './editar-producto.component.html',
   styleUrl: './editar-producto.component.css'
 })

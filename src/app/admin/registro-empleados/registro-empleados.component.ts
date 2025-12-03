@@ -4,10 +4,13 @@ import { EmpleadoService } from '../../empleado.service';
 import { Empleado } from '../../models/empleado.models';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import Swal from 'sweetalert2';
+import { LoadingComponent } from "../../compartidos/componentes/loading/loading.component";
 
 @Component({
   selector: 'app-registro-empleados',
-  imports: [RouterLink, MatTableModule, CommonModule],
+  imports: [RouterLink, MatTableModule, CommonModule, SweetAlert2Module, LoadingComponent],
   templateUrl: './registro-empleados.component.html',
   styleUrl: './registro-empleados.component.css'
 })
@@ -41,12 +44,9 @@ export class RegistroEmpleadosComponent {
   }
 
   borrar(id: number) {
-    if (confirm('¿Estás seguro de eliminar este empleado?')) {
       this.empleadoService.borrar(id).subscribe(() => {
+        Swal.fire("Exitoso", "El registro ha sido borrado exitosamente ", 'success')
         this.cargarEmpleados();
-      }, error => {
-        console.error('Error al borrar:', error);
       });
     }
   }
-}

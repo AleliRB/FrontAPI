@@ -24,7 +24,9 @@
         <a mat-flat-button [routerLink]="['/categorias/editar', categoria.idCat]">
           <i class="bi bi-pencil-fill"></i>
         </a>
-        <button mat-flat-button color="warn" (click)="borrar(categoria.idCat)">
+        <button mat-flat-button color="warn" 
+        [swal]="{title:'Confirmación', text: '¿Deseas borrar este registro?', showCancelButton:true}"
+        (confirm)="borrar(categoria.idCat)">
           <i class="bi bi-trash-fill"></i>
         </button>
       </td>
@@ -34,4 +36,6 @@
     <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
 
   </table>
+}@else {
+  <app-loading></app-loading>
 }

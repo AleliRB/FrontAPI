@@ -4,9 +4,12 @@ import { Producto } from '../../models/producto.models';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { LoadingComponent } from "../../compartidos/componentes/loading/loading.component";
 @Component({
   selector: 'app-registro-productos',
-  imports: [RouterLink, MatTableModule, CommonModule],
+  imports: [RouterLink, MatTableModule, CommonModule, SweetAlert2Module, LoadingComponent],
   templateUrl: './registro-productos.component.html',
   styleUrl: './registro-productos.component.css'
 })
@@ -36,13 +39,12 @@ export class RegistroProductosComponent {
     });
   }
   borrar(id: number) {
-    if (confirm('¿Estás seguro de eliminar este producto?')) {
+    
       this.productoService.borrar(id).subscribe(() => {
+        Swal.fire("Exitoso", "El registro ha sido borrado exitosamente ", 'success')
         this.cargarProductos();
-      }, error => {
-        console.error('Error al borrar:', error);
-        alert('No se puede eliminar el producto porque tiene categoria asociado');
+      
       });
     }
   }
-}
+

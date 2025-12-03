@@ -3,16 +3,23 @@
 
   <form (submit)="guardarCambios()" [formGroup]="form">
 
-    <div class="mb-3">
-      <label class="form-label">Descripción</label>
-      <input 
-        type="text" 
-        class="input-field" 
-        [formControl]="form.controls.descripcion" 
-        placeholder="Nombre de la categoría">
-    </div>
+   <div class="mb-3">
+  <label class="form-label">Descripción</label>
 
-    <button type="submit" class="btn-submit">Guardar</button>
+  <input 
+    type="text" 
+    class="input-field"
+    formControlName="descripcion"
+    placeholder="Nombre de la categoría"
+    [class.input-error]="mostrarErrorDescripcion()">
+
+  <mat-error *ngIf="mostrarErrorDescripcion()">
+    {{ obtenerErroresCampoDescripcion() }}
+  </mat-error>
+</div>
+
+
+    <button type="submit"  [disabled]="form.invalid"  class="btn-submit">Guardar</button>
     <a routerLink="/registro-categorias" class="btn-cancel">Cancelar</a>
   </form>
 </div>

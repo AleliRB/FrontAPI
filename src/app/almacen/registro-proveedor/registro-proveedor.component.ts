@@ -4,10 +4,13 @@ import { ProveedorService } from '../../proveedor.service';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { LoadingComponent } from "../../compartidos/componentes/loading/loading.component";
 
 @Component({
   selector: 'app-registro-proveedor',
-  imports: [RouterLink, MatTableModule, CommonModule],
+  imports: [RouterLink, MatTableModule, CommonModule, SweetAlert2Module, LoadingComponent],
   templateUrl: './registro-proveedor.component.html',
   styleUrl: './registro-proveedor.component.css'
 })
@@ -46,13 +49,11 @@ export class RegistroProveedorComponent {
   }
 
   borrar(id: number) {
-    if (confirm('¿Estás seguro de eliminar este proveedor?')) {
+    
       this.proveedorService.borrar(id).subscribe(() => {
+        Swal.fire("Exitoso", "El registro ha sido borrado exitosamente ", 'success')
         this.cargarProveedores();
-      }, error => {
-        console.error('Error al borrar:', error);
-        alert('No se puede eliminar el proveedor porque tiene productos asociados');
       });
     }
 }
-}
+

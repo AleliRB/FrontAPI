@@ -1,4 +1,7 @@
 @if(modelo){
+  <app-mostrar-errores  [errores]="errores"></app-mostrar-errores>
     <app-formulario-empleado titulo="Editar Empleado" [modelo]="modelo"
     (posteoFormulario)="guardarCambios($event)"></app-formulario-empleado>
+}@else {
+  <app-loading></app-loading>
 }
