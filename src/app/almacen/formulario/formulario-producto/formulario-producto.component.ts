@@ -31,6 +31,28 @@ export class FormularioProductoComponent implements OnInit {
   @Output()
   posteoFormulario = new EventEmitter<ProductoCreacion>();
 
+
+  obtenerErrorCampo(campoNombre: string): string {
+  const campo = this.form.get(campoNombre);
+
+  if (!campo) return "";
+
+  if (campo.hasError('required')) {
+    return `El campo ${campoNombre} es requerido`;
+  }
+
+  if (campo.hasError('pattern')) {
+    if (campoNombre === 'stockTotal') return "El Total debe ser mayor que 0 y mayor que el Stock Actual";
+  }
+
+  return "";
+}
+
+mostrarErrorCampo(campoNombre: string): boolean {
+  const campo = this.form.get(campoNombre);
+  return campo ? campo.invalid && campo.touched : false;
+}
+
   formBuilder = inject(FormBuilder);
 
   form = this.formBuilder.group({
