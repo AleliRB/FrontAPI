@@ -4,13 +4,10 @@ import { UsuarioService } from '../../usuario.service';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
-import Swal from 'sweetalert2';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { LoadingComponent } from "../../compartidos/componentes/loading/loading.component";
 
 @Component({
   selector: 'app-registro-usuarios',
-  imports: [RouterLink, MatTableModule, CommonModule, SweetAlert2Module, LoadingComponent],
+  imports: [RouterLink, MatTableModule, CommonModule],
   templateUrl: './registro-usuarios.component.html',
   styleUrl: './registro-usuarios.component.css'
 })
@@ -48,10 +45,12 @@ usuarioService = inject(UsuarioService);
   }
 
   borrar(id: number) {
+    if (confirm('¿Estás seguro de eliminar este usuario?')) {
       this.usuarioService.borrar(id).subscribe(() => {
-        Swal.fire("Exitoso", "El registro ha sido borrado exitosamente ", 'success')
         this.cargarUsuarios();
+      }, error => {
+        console.error('Error al borrar:', error);
       });
     }
   }
-
+}

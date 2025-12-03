@@ -35,7 +35,7 @@ cargarCategorias() {
   });
 
   this.proveedorService.obtenerTodos().subscribe({
-    next: proveedores => this.proveedores = proveedores,  // ← AQUÍ EL CAMBIO
+    next: proveedores => this.proveedores = proveedores, 
     error: e => console.error("Error cargando proveedores", e)
   });
 }

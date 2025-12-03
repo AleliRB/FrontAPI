@@ -45,10 +45,10 @@ export class FormularioUsuarioComponent implements OnInit{
   }
 
   form = this.formBuilder.group({
-    nombre: ['', {validators: [Validators.required]}],
-    contrasenaHash: ['',{validators: [Validators.required]}],
-    tipoUsuario: ['Administrador', {validators: [Validators.required]}],
-    idEmp: [0, {validators: [Validators.required]}]
+    nombre: ['', Validators.required],
+    contrasenaHash: ['', Validators.required],
+    tipoUsuario: ['Administrador', Validators.required],
+    idEmp: [0, Validators.required]
   });
 
   togglePassword() {

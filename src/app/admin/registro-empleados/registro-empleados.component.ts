@@ -36,10 +36,10 @@ export class RegistroEmpleadosComponent {
 
   cargarEmpleados() {
     this.empleadoService.obtenerTodos().subscribe(empleados => {
-      console.log('Empleados cargados:', empleados); // ← Para debug
+      console.log('Empleados cargados:', empleados);
       this.empleados = empleados;
     }, error => {
-      console.error('Error al cargar empleados:', error); // ← Para debug
+      console.error('Error al cargar empleados:', error); 
     });
   }
 

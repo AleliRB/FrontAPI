@@ -32,7 +32,7 @@ export class FormularioEmpleadoComponent implements OnInit {
   tiposEmpleado: any[] = [];
 
   ngOnInit(): void {
-    // Cargar tipos de empleado desde la API
+
     this.tipoEmpleadoService.obtenerTodos().subscribe(tipos => {
       this.tiposEmpleado = tipos.map(t => ({
         id: t.idTipEmp,
@@ -40,7 +40,7 @@ export class FormularioEmpleadoComponent implements OnInit {
       }));
     });
 
-    // Si hay un modelo (editar), cargar los datos
+
     if (this.modelo !== undefined) {
       this.form.patchValue({
         nombre: this.modelo.nombre,
