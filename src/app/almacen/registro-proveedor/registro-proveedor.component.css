@@ -118,3 +118,11 @@
   font-size: 12px;
   font-weight: 500;
 }
+.badge-info {
+  background-color: #17a2b8;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}

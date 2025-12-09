@@ -11,7 +11,7 @@ export class CategoriaService {
 
   constructor() { }
   private http = inject(HttpClient);
-  private URLbase = environment.apiURL + 'api/categorias';
+  private URLbase = environment.apiURL + 'api/categoria';
 
   public obtenerTodos(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(this.URLbase);

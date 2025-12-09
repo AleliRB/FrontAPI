@@ -11,7 +11,7 @@ export class SalidaService {
 
   constructor() { }
   private http = inject(HttpClient);
-  private URLbase = environment.apiURL + 'api/salidas';
+  private URLbase = environment.apiURL + 'api/salida';
 
   public obtenerTodos(): Observable<Salida[]> {
     return this.http.get<Salida[]>(this.URLbase);
@@ -25,9 +25,7 @@ export class SalidaService {
     return this.http.get<Salida[]>(`${this.URLbase}/empleado/${idEmp}`);
   }
 
-  public obtenerPendientes(): Observable<Salida[]> {
-    return this.http.get<Salida[]>(`${this.URLbase}/pendientes`);
-  }
+  
 
   public crear(salida: SalidaCreacion) {
     return this.http.post(this.URLbase, salida);
@@ -37,9 +35,7 @@ export class SalidaService {
     return this.http.put(`${this.URLbase}/${id}`, salida);
   }
 
-  public registrarDevolucion(id: number, fechaDevolucion: Date) {
-    return this.http.patch(`${this.URLbase}/${id}/devolucion`, fechaDevolucion);
-  }
+  
 
   public borrar(id: number) {
     return this.http.delete(`${this.URLbase}/${id}`);

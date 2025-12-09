@@ -11,7 +11,7 @@ export class ProveedorService {
 
   constructor() { }
    private http = inject(HttpClient);
-  private URLbase = environment.apiURL + 'api/proveedores';
+  private URLbase = environment.apiURL + 'api/proveedor';
 
   public obtenerTodos(): Observable<Proveedor[]> {
     return this.http.get<Proveedor[]>(this.URLbase);

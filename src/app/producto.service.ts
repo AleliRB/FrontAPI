@@ -11,7 +11,7 @@ export class ProductoService {
 
   constructor() { }
    private http = inject(HttpClient);
-  private URLbase = environment.apiURL + 'api/productos';
+  private URLbase = environment.apiURL + 'api/producto';
 
   public obtenerTodos(): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.URLbase);
@@ -24,10 +24,10 @@ export class ProductoService {
   public obtenerPorCategoria(idCategoria: number): Observable<Producto[]> {
     return this.http.get<Producto[]>(`${this.URLbase}/categoria/${idCategoria}`);
   }
+  public obtenerPorProveedor(idProveedor: number): Observable<Producto[]> {
+  return this.http.get<Producto[]>(`${this.URLbase}/proveedor/${idProveedor}`);
+}
 
-  public obtenerStockBajo(): Observable<Producto[]> {
-    return this.http.get<Producto[]>(`${this.URLbase}/stockbajo`);
-  }
 
   public crear(producto: ProductoCreacion) {
     return this.http.post(this.URLbase, producto);

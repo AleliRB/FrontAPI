@@ -13,7 +13,7 @@ export class EmpleadoService {
 
 
   private http = inject(HttpClient);
-  private URLbase =environment.apiURL +'api/empleados';
+  private URLbase =environment.apiURL +'api/empleado';
 
   public obtenerTodos(): Observable<Empleado[]>{
     
@@ -34,5 +34,8 @@ export class EmpleadoService {
   public borrar (id:number){
     return this.http.delete(`${this.URLbase}/${id}`);
   }
+public obtenerSinUsuario(): Observable<Empleado[]> {
+  return this.http.get<Empleado[]>(`${this.URLbase}/sin-usuario`);
+}
 
 }

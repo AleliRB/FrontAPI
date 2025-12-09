@@ -4,6 +4,7 @@ export interface ProveedorCreacion {
   telefono: number;
   email: string;
   estado: string;
+  productos?: number[]; // <-- necesita array de IDs
 }
 
 export interface Proveedor {
@@ -13,4 +14,6 @@ export interface Proveedor {
   telefono: number;
   email: string;
   estado: string;
+  productos?: number[]; // <-- necesita array de IDs
+  nombresProductos?: string[]; // <-- NUEVO
 }

@@ -11,11 +11,13 @@ export class UsuarioService {
 
   constructor() { }
   private http = inject(HttpClient);
-  private URLbase = environment.apiURL + 'api/usuarios';
+  private URLbase = environment.apiURL + 'api/usuario';
 
+  // GET: api/usuario
   public obtenerTodos(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.URLbase);
   }
+
 
   public obtenerPorId(id: number): Observable<Usuario> {
     return this.http.get<Usuario>(`${this.URLbase}/${id}`);

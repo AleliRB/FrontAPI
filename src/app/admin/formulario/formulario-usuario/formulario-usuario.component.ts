@@ -28,16 +28,14 @@ export class FormularioUsuarioComponent implements OnInit{
   mostrarPassword = false;
 
   ngOnInit(): void {
-    // Cargar empleados que NO tienen usuario
     this.empleadoService.obtenerTodos().subscribe(empleados => {
       this.empleadosSinUsuario = empleados.filter(e => !e.tieneUsuario);
     });
 
-    // Si hay modelo (editar), cargar los datos
     if (this.modelo !== undefined) {
       this.form.patchValue({
         nombre: this.modelo.nombre,
-        contrasenaHash: '', // No mostrar la contraseña
+        contrasenaHash: '',
         tipoUsuario: this.modelo.tipoUsuario,
         idEmp: this.modelo.idEmp
       });
@@ -45,10 +43,10 @@ export class FormularioUsuarioComponent implements OnInit{
   }
 
   form = this.formBuilder.group({
-    nombre: ['', Validators.required],
-    contrasenaHash: ['', Validators.required],
-    tipoUsuario: ['Administrador', Validators.required],
-    idEmp: [0, Validators.required]
+    nombre: ['',{validators: [Validators.required]}],
+    contrasenaHash: ['', {validators: [Validators.required]}],
+    tipoUsuario: ['Administrador', {validators: [Validators.required]}],
+    idEmp: [0, {validators: [Validators.required]}]
   });
 
   togglePassword() {

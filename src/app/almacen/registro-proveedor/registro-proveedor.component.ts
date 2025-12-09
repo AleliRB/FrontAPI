@@ -24,6 +24,8 @@ export class RegistroProveedorComponent {
     'Direccion',
     'Telefono',
     'Email',
+    'Productos',
+    'TotalProductos',
     'Estado',
     'Acciones'
   ];
