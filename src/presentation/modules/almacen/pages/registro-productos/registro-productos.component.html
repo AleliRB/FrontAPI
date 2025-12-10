@@ -46,20 +46,20 @@
       </td>
     </ng-container>
 
-    <!-- Acciones -->
+<!-- Acciones -->
     <ng-container matColumnDef="Acciones">  
   <th mat-header-cell *matHeaderCellDef>Acciones</th>
-  <td mat-cell *matCellDef="let categoria" class="acciones-cell">
+  <td mat-cell *matCellDef="let producto" class="acciones-cell">
 
     <!-- Botón Editar -->
-    <a mat-flat-button class="btn-custom" [routerLink]="['/categorias/editar', categoria.idCat]">
+    <a mat-flat-button class="btn-custom" [routerLink]="['/productos/editar', producto.idProd]">
       <i class="bi bi-pencil-fill"></i>
     </a>
 
     <!-- Botón Eliminar -->
     <button mat-flat-button class="btn-custom"
       [swal]="{title:'Confirmación', text: '¿Deseas borrar este registro?', showCancelButton:true}"
-      (confirm)="borrar(categoria.idCat)">
+      (confirm)="borrar(producto.idProd)">
       <i class="bi bi-trash-fill"></i>
     </button>
 

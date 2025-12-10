@@ -12,7 +12,7 @@ export class DetalleSalidaService {
   constructor() { }
 
   private http = inject(HttpClient);
-  private URLbase = environment.apiURL + 'api/detallessalida';
+  private URLbase = environment.apiURL + 'api/detallesalida';
 
   public obtenerPorSalida(idSalida: number): Observable<DetalleSalida[]> {
     return this.http.get<DetalleSalida[]>(`${this.URLbase}/salida/${idSalida}`);
