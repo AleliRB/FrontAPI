@@ -5,8 +5,8 @@
   </button>
 </div>
 
-@if (categorias) {
-  <table mat-table [dataSource]="categorias" class="mat-elevation-z8 styled-table">
+<div *ngIf="categorias && categorias.length">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 styled-table">
 
     <ng-container matColumnDef="ID">  
       <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -18,24 +18,35 @@
       <td mat-cell *matCellDef="let categoria">{{categoria.descripcion}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="Acciones">  
-      <th mat-header-cell *matHeaderCellDef>Acciones</th>
-      <td mat-cell *matCellDef="let categoria" class="acciones-cell">
-        <a mat-flat-button [routerLink]="['/categorias/editar', categoria.idCat]">
-          <i class="bi bi-pencil-fill"></i>
-        </a>
-        <button mat-flat-button color="warn" 
-        [swal]="{title:'Confirmación', text: '¿Deseas borrar este registro?', showCancelButton:true}"
-        (confirm)="borrar(categoria.idCat)">
-          <i class="bi bi-trash-fill"></i>
-        </button>
-      </td>
-    </ng-container>
+   <ng-container matColumnDef="Acciones">  
+  <th mat-header-cell *matHeaderCellDef>Acciones</th>
+  <td mat-cell *matCellDef="let categoria" class="acciones-cell">
+
+    <!-- Botón Editar -->
+    <a mat-flat-button class="btn-custom" [routerLink]="['/categorias/editar', categoria.idCat]">
+      <i class="bi bi-pencil-fill"></i>
+    </a>
+
+    <!-- Botón Eliminar -->
+    <button mat-flat-button class="btn-custom"
+      [swal]="{title:'Confirmación', text: '¿Deseas borrar este registro?', showCancelButton:true}"
+      (confirm)="borrar(categoria.idCat)">
+      <i class="bi bi-trash-fill"></i>
+    </button>
+
+  </td>
+</ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
     <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
 
   </table>
-}@else {
+
+  <div style="margin-top:16px; display:flex; justify-content:flex-end;">
+    <mat-paginator [pageSize]="7" [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+<ng-container *ngIf="!categorias || !categorias.length">
   <app-loading></app-loading>
-}
+</ng-container>

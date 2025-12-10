@@ -5,10 +5,9 @@
   </button>
 </div>
 
-@if (usuarios) {
-  <table mat-table [dataSource]="usuarios" class="mat-elevation-z8 styled-table">
-
-
+<div *ngIf="usuarios && usuarios.length">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 styled-table">
+ 
     <ng-container matColumnDef="Usuario">  
       <th mat-header-cell *matHeaderCellDef>Usuario</th>
       <td mat-cell *matCellDef="let usuario">{{usuario.nombre}}</td>
@@ -51,17 +50,32 @@
       <td mat-cell *matCellDef="let usuario">{{usuario.fechaCreacion | date:'dd/MM/yyyy'}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="Acciones">  
-      <th mat-header-cell *matHeaderCellDef>Acciones</th>
-      <td mat-cell *matCellDef="let usuario" class="acciones-cell">
-        <button mat-flat-button color="warn" (click)="borrar(usuario.idUser)">
-          <i class="bi bi-trash-fill"></i>
-        </button>
-      </td>
-    </ng-container>
+     <ng-container matColumnDef="Acciones">  
+  <th mat-header-cell *matHeaderCellDef>Acciones</th>
+  <td mat-cell *matCellDef="let categoria" class="acciones-cell">
+
+    <!-- Botón Editar -->
+    <a mat-flat-button class="btn-custom" [routerLink]="['/categorias/editar', categoria.idCat]">
+      <i class="bi bi-pencil-fill"></i>
+    </a>
+
+    <!-- Botón Eliminar -->
+    <button mat-flat-button class="btn-custom"
+      [swal]="{title:'Confirmación', text: '¿Deseas borrar este registro?', showCancelButton:true}"
+      (confirm)="borrar(categoria.idCat)">
+      <i class="bi bi-trash-fill"></i>
+    </button>
+
+  </td>
+</ng-container>
 
     <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
     <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
 
   </table>
-}
+
+  <!-- Paginador de Angular Material -->
+  <div style="margin-top:16px; display:flex; justify-content:flex-end;">
+    <mat-paginator [pageSize]="7" [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

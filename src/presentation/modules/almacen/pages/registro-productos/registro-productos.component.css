@@ -85,10 +85,9 @@
   background-color: #f1f3f5; /* boton suave */
   border-radius: 6px;
 }
-
-/* Resaltar fila al pasar el mouse */
-.styled-table tr.mat-row:hover td {
-  background-color: #e9f2ff; /* azul muy suave */
+/* Resaltar columna al pasar el mouse */
+.styled-table td:hover {
+  background-color: #f6f7f8;
 }
 
 /* Resaltar columna al pasar el mouse */
@@ -117,4 +116,12 @@
   border-radius: 12px;
   font-size: 12px;
   font-weight: 500;
+}
+.btn-custom {
+  background-color:#76685c !important;
+  color: white !important;
+}
+
+.btn-custom:hover {
+  background-color: #968c84 !important; /* un poco más claro para hover */
 }

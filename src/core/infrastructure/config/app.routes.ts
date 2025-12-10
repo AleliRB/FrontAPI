@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { RegistroAdminComponent } from '../../../presentation/modules/admin/pages/registro-admin/registro-admin.component';
+
 import { MenuComponent } from '../../../presentation/layouts/menu.component';
 import { InicioComponent } from '../../../presentation/modules/admin/pages/inicio/inicio.component';
 import { RegistroEmpleadosComponent } from '../../../presentation/modules/admin/pages/registro-empleados/registro-empleados.component';
@@ -22,10 +22,7 @@ import { EditarSalidaComponent } from '../../../presentation/modules/almacen/com
 
 
 export const routes: Routes = [
-    {
-        
-        path:'registro-admin', component:RegistroAdminComponent
-    },
+    
     {
         path:'', component:InicioComponent
     },

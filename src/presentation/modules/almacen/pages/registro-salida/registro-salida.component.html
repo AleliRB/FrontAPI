@@ -1,54 +1,105 @@
-<div class="btn-container">
-  <button class="btn-registrar" routerLink="/crear-salida">
-    <span class="material-icons">output</span>
-    Nueva Salida
-  </button>
-</div>
+<section class="nosotros-root">
+  <div class="container">
+    <header class="hero">
+      <div class="logo">
+        <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="#6B4F35">
+            <circle cx="7" cy="7" r="2.5" />
+            <circle cx="17" cy="7" r="2.5" />
+            <path d="M12 3c-2.8 0-5 2.2-5 5 0 .9.3 1.7.8 2.4C6.6 11.9 5 13.8 5 16v1c0 1.7 1.3 3 3 3h8c1.7 0 3-1.3 3-3v-1c0-2.2-1.6-4.1-2.8-5.6.5-.7.8-1.5.8-2.4 0-2.8-2.2-5-5-5z" />
+            <ellipse cx="9" cy="16.2" rx="1" ry="0.8" fill="#fff" />
+            <ellipse cx="15" cy="16.2" rx="1" ry="0.8" fill="#fff" />
+          </g>
+        </svg>
+      </div>
+      <div class="hero-text">
+        <h1>Nosotros</h1>
+        <p class="lead">Somos Mr Beer — soluciones sencillas y confiables para tu almacén.</p>
+      </div>
+    </header>
 
-@if (salidas) {
-  <table mat-table [dataSource]="salidas" class="mat-elevation-z8 styled-table">
+    <main class="content">
+      <section class="card-row">
+        <article class="card">
+          <h3>Nuestra Misión</h3>
+          <p>Facilitar operaciones de almacén con interfaces limpias, intuitivas y eficientes que permitan tomar decisiones rápidas.</p>
+        </article>
 
-    <ng-container matColumnDef="ID">  
-      <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let salida">{{salida.idSalida}}</td>
-    </ng-container>
+        <article class="card">
+          <h3>Nuestra Visión</h3>
+          <p>Ser la referencia en herramientas de gestión ligera, donde la experiencia de usuario sea el valor central.</p>
+        </article>
 
-    <ng-container matColumnDef="Destino">  
-      <th mat-header-cell *matHeaderCellDef>Destino</th>
-      <td mat-cell *matCellDef="let salida">{{salida.destinoSalida}}</td>
-    </ng-container>
+        <article class="card">
+          <h3>Valores</h3>
+          <ul>
+            <li>Claridad</li>
+            <li>Fiabilidad</li>
+            <li>Empatía</li>
+          </ul>
+        </article>
+      </section>
 
-    <ng-container matColumnDef="FechaSalida">  
-      <th mat-header-cell *matHeaderCellDef>Fecha Salida</th>
-      <td mat-cell *matCellDef="let salida">{{salida.fechaSalida | date:'dd/MM/yyyy'}}</td>
-    </ng-container>
+      <section class="team">
+        <h2>Equipo</h2>
+        <div class="team-grid">
+          <figure class="member">
+            <div class="avatar">MB</div>
+            <figcaption>
+              <strong>Mr Bear</strong>
+              <span class="role">Mascota / Marca</span>
+              <p class="muted">Encarnamos simplicidad</p>
+            </figcaption>
+          </figure>
+          <figure class="member">
+            <div class="avatar">AR</div>
+              <figcaption>
+                <strong>Alejandra Rosas</strong>
+                  <span class="role">Desarrolladora / Agradable</span>
+                  <p class="muted">Amante de la tienda</p>
+              </figcaption>
+          </figure>
+          <figure class="member">
+            <div class="avatar">DG</div>
+            <figcaption>
+              <strong>Diogo Gutierrez</strong>
+              <span class="role">Testeador / Amigable</span>
+              <p class="muted">Ayudante perfecto</p>
+            </figcaption>
+          </figure>
 
+          <figure class="member">
+            <div class="avatar">DD</div>
+            <figcaption>
+              <strong>David De La Cruz</strong>
+              <span class="role">Full Stack / Sereno</span>
+              <p class="muted">Concentrado</p>
+            </figcaption>
+          </figure>
 
-    <ng-container matColumnDef="Empleado">  
-      <th mat-header-cell *matHeaderCellDef>Empleado</th>
-      <td mat-cell *matCellDef="let salida">{{salida.empleadoNombre}}</td>
-    </ng-container>
+          <figure class="member">
+            <div class="avatar">LP</div>
+            <figcaption>
+              <strong>Lucía Peña</strong>
+              <span class="role">Mantenibilidad</span>
+              <p class="muted">Buena persona</p>
+            </figcaption>
+          </figure>
+          <!--separación-->
+          <figure class="member">
+            <div class="avatar">AF</div>
+              <figcaption>
+                <strong>Alonso Flores</strong>
+                  <span class="role">Programador Junior / Aspirante</span>
+                  <p class="muted">Conservador de la tienda</p>
+              </figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
 
-
-    <ng-container matColumnDef="Acciones">  
-      <th mat-header-cell *matHeaderCellDef>Acciones</th>
-      <td mat-cell *matCellDef="let salida" class="acciones-cell">
-        
-        <a mat-flat-button [routerLink]="['/salidas/editar', salida.idSalida]">
-          <i class="bi bi-pencil-fill"></i>
-        </a>
-        <button mat-flat-button color="warn" 
-        [swal]="{title:'Confirmación', text: '¿Deseas borrar este registro?', showCancelButton:true}"
-        (confirm)="borrar(salida.idSalida)">
-          <i class="bi bi-trash-fill"></i>
-        </button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
-    <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
-
-  </table>
-}@else {
-  <app-loading></app-loading>
-}
+    <footer class="footer">
+      <small>© {{ currentYear }} Mr Bear.</small>
+    </footer>
+  </div>
+</section>

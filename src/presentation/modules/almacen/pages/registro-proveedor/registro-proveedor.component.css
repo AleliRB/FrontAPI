@@ -93,7 +93,7 @@
 
 /* Resaltar columna al pasar el mouse */
 .styled-table td:hover {
-  background-color: #e9f2ff;
+  background-color: #f6f7f8;
 }
 
 /* Resaltar fila y columna seleccionada */
@@ -125,4 +125,12 @@
   border-radius: 12px;
   font-size: 12px;
   font-weight: 500;
+}
+.btn-custom {
+  background-color:#76685c !important;
+  color: white !important;
+}
+
+.btn-custom:hover {
+  background-color: #968c84 !important; /* un poco más claro para hover */
 }

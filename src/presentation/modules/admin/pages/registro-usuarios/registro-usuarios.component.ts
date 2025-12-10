@@ -1,20 +1,28 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild, AfterViewInit } from '@angular/core';
 import { Usuario } from '../../../../../core/domain/entities/usuario.models';
 import { UsuarioService } from '../../../../../core/data/repositories/usuario.service';
 import { CommonModule } from '@angular/common';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { SwalDirective } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
   selector: 'app-registro-usuarios',
-  imports: [RouterLink, MatTableModule, CommonModule],
+  standalone: true,
+  imports: [RouterLink, MatTableModule, MatPaginatorModule,SwalDirective, MatButtonModule, CommonModule],
   templateUrl: './registro-usuarios.component.html',
   styleUrl: './registro-usuarios.component.css'
 })
-export class RegistroUsuariosComponent {
-usuarioService = inject(UsuarioService);
+export class RegistroUsuariosComponent implements AfterViewInit {
+  usuarioService = inject(UsuarioService);
   usuarios?: Usuario[];
-  
+
+  // DataSource y paginador de Angular Material
+  dataSource = new MatTableDataSource<Usuario>([]);
+  @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
+
   columnasAMostrar = [
     'Usuario',
     'Empleado',
@@ -30,8 +38,19 @@ usuarioService = inject(UsuarioService);
 
   cargarUsuarios() {
     this.usuarioService.obtenerTodos().subscribe(usuarios => {
-      console.log('Usuarios cargados:', usuarios);
       this.usuarios = usuarios;
+      this.dataSource.data = usuarios;
+      // Intentar conectar el paginador; si aún no existe, usar fallback
+      if (this.paginator) {
+        this.dataSource.paginator = this.paginator;
+      } else {
+        // Si el paginador aparece después de la carga, conectarlo con un pequeño retraso
+        setTimeout(() => {
+          if (this.paginator) {
+            this.dataSource.paginator = this.paginator;
+          }
+        }, 0);
+      }
     }, error => {
       console.error('Error al cargar usuarios:', error);
     });
@@ -51,6 +70,12 @@ usuarioService = inject(UsuarioService);
       }, error => {
         console.error('Error al borrar:', error);
       });
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if (this.paginator) {
+      this.dataSource.paginator = this.paginator;
     }
   }
 }
